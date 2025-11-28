@@ -1,4 +1,4 @@
-import {MyComponent, MyButton} from './components';
+import {MyComponent, MyButton, FancyButton} from './components';
 import './mine.css'
 
 const App = () => {
@@ -14,6 +14,12 @@ const App = () => {
       <MyComponent bgColor="Lavender" height={150}>
         Welcome to my app!
       </MyComponent>
+      <FancyButton large={true} rounded={false}>
+        my first fancy button
+      </FancyButton>
+      <FancyButton large={false} rounded={true}>
+        Seond fancy button
+      </FancyButton>
     </div>
     
   </div>;
