@@ -1,4 +1,25 @@
+import React, { useState, useEffect } from 'react';
+
 const Search = () => {
+    const [message, setMessage] = useState("default message");
+    const [clicked, setClicked] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+
+
+    useEffect(() => {
+        console.log("\nmessage: ", message, "\nclicked: ", clicked, "\nisHovered: ", isHovered);
+    }, [message, clicked, isHovered]);
+
+    // This is a event handler for button click
+    const handleClick = () => {
+        setClicked(true);
+        setMessage("Button Clicked");
+        setTimeout(() => {
+            setClicked(false);
+            setMessage("returning to default");
+        }, 1000); // 1 second
+    };
+
     return <div className="flex-1 flex flex-col justify-center items-center bg-orange-100">
         <div className="text-6xl text-orange-500 mb-4">Foogle</div>
 
@@ -9,9 +30,14 @@ const Search = () => {
             placeholder="search"
             />
         </div>
-        <div className="mt-4">
-            <button className="m-2 rounded-md bg-violet-200 text-violet-700 px-4 py-2 mt-4">
-                Foogle Search
+        <div className="mt-4 flex items-center">
+            <button className={"m-2 rounded-md bg-violet-200 text-violet-700 px-4 py-2 mt-4 transition-shadow duration-300 " +
+            (isHovered ? "shadow-lg shadow-violet-400/70" : "")} 
+            onClick={handleClick} 
+            onMouseEnter={() => setIsHovered(true)} 
+            onMouseLeave={() => setIsHovered(false)}
+        >
+                {clicked ? "Button Clicked" : "Foogle Search"}
             </button>
             <button className="m-2 rounded-md bg-violet-200 text-violet-700 px-4 py-2 mt-4">
                 Image Search
