@@ -7,12 +7,13 @@ import clsx from 'clsx';
 const Search = ({purpleMode}) => {
     const [message, setMessage] = useState("default message");
     const [clicked, setClicked] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered1, setIsHovered1] = useState(false);
+    const [isHovered2, setIsHovered2] = useState(false);
     const [searchValue, setSearchValue] = useState("");
 
     useEffect(() => {
-        console.log("\nmessage: ", message, "\nclicked: ", clicked, "\nisHovered: ", isHovered, "\nsearchValue: ", searchValue);
-    }, [message, clicked, isHovered, searchValue]);
+        console.log("\nmessage: ", message, "\nclicked: ", clicked, "\nisHovered1: ", isHovered1, "\nisHovered2: ", isHovered2, "\nsearchValue: ", searchValue);
+    }, [message, clicked, isHovered1, isHovered2, searchValue]);
 
     return <div className={clsx(
         "flex-1 flex flex-col justify-center items-center",
@@ -36,35 +37,33 @@ const Search = ({purpleMode}) => {
 
         </div>
         <div className="mt-4 flex items-center">
-            <button className={"m-2 rounded-md bg-violet-200 text-violet-700 px-4 py-2 mt-4 transition-shadow duration-300 " +
-            (isHovered ? "shadow-lg shadow-violet-400/70" : "")} 
-            
-            // onClick={() => setClicked(!clicked)} // Toggle clicked state on click to true or false and the result is shown
+            <button className={clsx(
+                "m-2 rounded-md bg-violet-200 text-violet-700 px-4 py-2 mt-4 transition-shadow duration-300",
+            (isHovered1 ? "shadow-lg shadow-violet-400/70" : ""),
+            "transition active:scale-95 active:bg-violet-300"
+            )} 
             onClick={() => {
                 window.open(`https://www.google.com/search?q=${searchValue}`, '_blank');
             }} 
-            onMouseEnter={() => setIsHovered(true)} 
-            onMouseLeave={() => setIsHovered(false)}
-        >
+            onMouseEnter={() => setIsHovered1(true)} 
+            onMouseLeave={() => setIsHovered1(false)}
+            >
                 {clicked ? "Button Clicked" : "Foogle Search"}
             </button>
-            <button className="m-2 rounded-md bg-violet-200 text-violet-700 px-4 py-2 mt-4">
+
+            <button className={clsx(
+                "m-2 rounded-md bg-violet-200 text-violet-700 px-4 py-2 mt-4 transition active:scale-95 active:bg-violet-300",
+                isHovered2 ? "shadow-lg shadow-violet-400/70" : "" 
+            )}
+            onClick={()=>{
+                window.open(`https://www.google.com/search?tbm=isch&q=${searchValue}`, '_blank');
+            }}
+            onMouseEnter={() => setIsHovered2(true)} 
+            onMouseLeave={() => setIsHovered2(false)}
+            >
                 Image Search
             </button>
         </div>
-    </div>
+    </div>;
 };
 export default Search;
-
-
-    // onClick={handleClick} 
-
-    // This is a event handler for button click
-    // const handleClick = () => {
-    //     setClicked(true);
-    //     setMessage("Button Clicked");
-    //     setTimeout(() => {
-    //         setClicked(false);
-    //         setMessage("returning to default");
-    //     }, 1000); // 1 second
-    // };
