@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.my-custom-box {
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fancy-text {
+  color: purple;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card-style {
+  border: 2px solid #333;
+  padding: 15px;
+  margin: 10px 0;
+}
