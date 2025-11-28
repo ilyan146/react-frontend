@@ -1,3 +1,6 @@
 export { default as MyComponent } from './MyComponent.jsx'
 export { default as MyButton } from './MyButton.jsx'
 export { default as FancyButton } from './FancyButton.jsx'
+export { default as Header } from './Header.jsx'
+export { default as Search } from './Search.jsx'
+export { default as Footer } from './Footer.jsx'

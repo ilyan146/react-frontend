@@ -1,28 +1,35 @@
-import {MyComponent, MyButton, FancyButton} from './components';
+import {MyComponent, MyButton, FancyButton, Header, Search, Footer } from './components';
 import './mine.css'
 
 const App = () => {
-  return <div className="grid grid-cols-2 gap-4">
-    <div> {/*className="border-2 border-red-500"*/}
-      <MyComponent bgColor="lightblue" height={150}>
-        hello!
-        john
-      </MyComponent>
-      <MyButton />
-    </div>
-    <div> {/*className="border-2 border-blue-500"*/}
-      <MyComponent bgColor="Lavender" height={150}>
-        Welcome to my app!
-      </MyComponent>
-      <FancyButton large={true} rounded={false}>
-        my first fancy button
-      </FancyButton>
-      <FancyButton large={false} rounded={true}>
-        Seond fancy button
-      </FancyButton>
-    </div>
+
+  return <div className="h-screen flex flex-col">
+    <Header />
+    <Search />
+    <Footer />
+  </div>
+
+  // return <div className="grid grid-cols-2 gap-4">
+  //   <div> {/*className="border-2 border-red-500"*/}
+  //     <MyComponent bgColor="lightblue" height={150}>
+  //       hello!
+  //       john
+  //     </MyComponent>
+  //     <MyButton />
+  //   </div>
+  //   <div> {/*className="border-2 border-blue-500"*/}
+  //     <MyComponent bgColor="Lavender" height={150}>
+  //       Welcome to my app!
+  //     </MyComponent>
+  //     <FancyButton large={false} rounded={false}>
+  //       my first fancy button
+  //     </FancyButton>
+  //     <FancyButton large={true} rounded={true}>
+  //       Seond fancy button
+  //     </FancyButton>
+  //   </div>
     
-  </div>;
+  // </div>;
 };
 
 export default App
